@@ -3,9 +3,10 @@ import json
 from send_email import send_email
 
 URL = "https://remoteok.io/api"
+# URL = "http://api.indeed.com/"
 keys = ['date', 'company', 'position', 'tags', 'location', 'url']
 
-wanted_tags = ["python", "django", "react", "colorado"] # remote, javascript, backend, mobile, ...
+wanted_tags = ["python", "django", "react", "javascript", "remote", "colorado", "entry level", "junior"] # remote, javascript, backend, mobile, ...
 
 def get_jobs():
     resp = requests.get(URL)
@@ -29,8 +30,8 @@ if __name__ == '__main__':
     python_jobs = get_jobs()
     
     if python_jobs:
-        message = "Subject: Remote Python Jobs!\n\n"
-        message += "Found some cool Python jobs!\n\n"
+        message = "Subject: BWW Dev Job finder!\n\n"
+        message += "Found jobs matching keywords!\n\n"
         
         for job in python_jobs:
             message += f"{json.dumps(job)}\n\n"
