@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# In[1]:
-
-
 from bs4 import BeautifulSoup as soup
 import requests
 import csv
@@ -11,15 +8,11 @@ from datetime import date
 
 query = []
 
-# In[2]:
-
+# For use of filtering dates, will need to improve for date ranges
 today = date.today()
-
 d = today.strftime("%m-%d-%y")
 print("date =", d)
 
-
-# In[3]:
 
 # CNN urls are formatted with dates, can update query parameters easily with this method
 cnn_url="https://edition.cnn.com/world/live-news/coronavirus-pandemic-{}-intl/index.html".format(d)
@@ -97,7 +90,7 @@ for link in links:
         query.append([news.text.strip()])
 
 
-print(query)f
+print(query)
 header = ['cached data']
 
 with open('covid.csv', 'w', encoding='UTF8', newline='') as f:
